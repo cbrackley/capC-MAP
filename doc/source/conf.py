@@ -114,7 +114,7 @@ todo_include_todos = False
 # a list of builtin themes.
 #CB#html_theme = 'bizstyle' #'alabaster'
 
-html_theme = 'rtd'
+html_theme = 'default'
 html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
