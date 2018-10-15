@@ -27,7 +27,7 @@ Installation
 To install capC-MAP perform the following steps:
 
 1. Download the software and unzip into a directory in your home directory,
-   or clone from githib.
+   or clone from github.
 
 2. capC-MAP consists of a set of programs written in C++ and a Python package, 
    which both need to be installed on your system. If you have root privileges 
