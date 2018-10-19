@@ -6,3 +6,7 @@ build
 CBREADE_automake
 Makefile
 src/Makefile
+autom4te.cache/ 
+config.log 
+config.status 
+src/.deps/
