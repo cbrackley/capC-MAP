@@ -1,0 +1,123 @@
+#!/usr/bin/env python
+
+# capC-MAP - a software package for analysis of Capture-C data
+# Copyright (C) 2018, University of Edinburgh
+#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+# 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+# 
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# 
+#  Written by Chris Brackley <C.Brackley@ed.ac.uk>
+# 
+
+
+import sys
+import argparse
+
+from capC.genomedigest import do_genomedigest
+from capC.pipeline import run_pipeline
+from capC.postprocess import do_postprocess
+from capC.resfrags2chromsize import do_get_chromsizes
+from capC.replicates import do_combine_reps
+
+#***********************************************************************#
+
+## Set up command line parsing
+parser = argparse.ArgumentParser(description='Capture C analysis pipeline.');
+
+subparsers = parser.add_subparsers(dest='',title='sub-commands',
+                                   description='use one of the following sub-commands')
+subparsers.required = True
+
+## Genome digester
+parser_genomedigest = subparsers.add_parser('genomedigest',
+                                            help='Generate list of restriction enzyme '
+                                            +'fragments from a fasta file for the reference geneome. '
+                                            +'Required inputs are a fasta file.')
+
+parser_genomedigest.add_argument('-i', nargs=1, dest='inputfasta', action='store',
+                                 required=True, help='input fasta file of geneome');
+
+parser_genomedigest.add_argument('-r', nargs=1, dest='enzymename', action='store',
+                                 required=True, help='name of supported enzyme, or cutting sequence');
+
+parser_genomedigest.add_argument('-o', nargs=1, dest='outputbed', action='store',
+                                 required=True, help='output bed file of restriction fragments');
+
+parser_genomedigest.set_defaults(func=do_genomedigest)
+
+
+## Full capture c pipeline
+parser_run = subparsers.add_parser('run', help='Run full capture c processing pipeline. Required '
+                                   +'inputs are a config file, and a name for a new directory for the output.')
+
+parser_run.add_argument('-c', nargs=1, dest='configfile', action='store',
+                        required=True, help='configuration file');
+
+parser_run.add_argument('-o', nargs=1, dest='outdir', action='store',
+                        required=True, help='directory to be created for output');
+
+parser_run.set_defaults(func=run_pipeline)
+
+
+## Do some post processing
+parser_postprocess = subparsers.add_parser('postprocess',
+                                           help='Run binning, smoothing or normalization on capture c '
+                                           +'profiles. Required inputs are a config file (only lines '
+                                           +'relating to binning are read), and a name for the directory '
+                                           +'containing raw pile-ups or validpairs files.')
+
+parser_postprocess.add_argument('-c', nargs=1, dest='configfile', action='store',
+                        required=True, help='configuration file');
+
+parser_postprocess.add_argument('-o', nargs=1, dest='outdir', action='store',
+                        required=True, help='directory to be created for output');
+
+
+parser_postprocess.set_defaults(func=do_postprocess)
+
+## Combine replicates
+parser_combreps = subparsers.add_parser('combinereps',
+                                        help='Combine multiple replicates into a single data set, and run '
+                                        +'binning, smoothing or normalization. A single configuration file,'
+                                        +' and multiple processed data directories are required.')
+
+parser_combreps.add_argument('-c', nargs=1, dest='configfile', action='store',
+                             required=True, help='configuration file');
+
+parser_combreps.add_argument('-i',nargs=1,dest='indir', action='append',
+                             required=True,help='directory containing output from capC-MAP for a '
+                             +'replicate (option must appear multiple times).')
+
+parser_combreps.add_argument('-o', nargs=1, dest='outdir', action='store',
+                        required=True, help='directory to be created for combined output');
+
+parser_combreps.set_defaults(func=do_combine_reps)
+
+## Get chroms.sizes
+parser_csize = subparsers.add_parser('getchromsizes', help='Generate a chrom.sizes files from a list of '
+                                   +'restriction enzyme fragments.')
+
+parser_csize.add_argument('-f', nargs=1, dest='fragmentsfile', action='store',
+                        required=True, help='bed file continaing list of restriction enzyme fragments for genome');
+
+parser_csize.add_argument('-o', nargs=1, dest='outfile', action='store',
+                        required=False, help='output file name (Default: chrom.sizes)');
+
+parser_csize.set_defaults(func=do_get_chromsizes)
+
+#***********************************************************************#
+
+## Parse the command line and run the function
+args = parser.parse_args()
+args.func(args)
+
