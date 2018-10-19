@@ -1,0 +1,32 @@
+
+
+##############################################################################
+## 
+## This directory contains a reduced CaptureC data set for testing.
+##
+## This is a small fragment of a data set are publically available at 
+## GEO:
+##
+## This is mouse data from an experiment using DpnII restriction enzyme.
+## Data from three different oligo targets are included.
+##
+## The procedure to run capC-MAP on this data set is as follows:
+##
+## 1. Uncompress the two fastq files. E.g.,
+
+gunzip data_1.fastq.gz data_2.fastq.gz
+
+## 2. Uncompress the map of the restricion enzyme fragments for the mm9 
+##    genome. E.g.,
+
+gunzip dpnII_map_mm9.bed.gz
+
+##    This file was generated from the mm9 sequence using the 
+##    "capC-MAP genomedigest" command.
+##
+## 3. Edit example_config_file.txt to inlude path to the bowtie mm9 index
+##    on your computer.
+##
+## 4. Run capC-MAP
+
+capC-MAP run -c example_config_file.txt -o MyOutput

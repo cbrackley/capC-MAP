@@ -1,0 +1,61 @@
+################################################################
+##
+## Example configuration file for capC-MAP
+##
+################################################################
+
+################################################################
+## Input files
+FASTQ1 data_1.fastq
+FASTQ2 data_2.fastq
+TARGETS targets.bed
+
+################################################################
+## Genome files
+INDEX /path/to/bowtie/index/mm9/mm9
+RESTFRAGS dpnII_map_mm9.bed
+
+
+################################################################
+## Name of restriction enzyme or cutting sequence
+ENZYME dpnII
+
+################################################################
+## Set option for adapter trimming -- default is TRUE
+#TRIMADAPTERS FALSE
+
+################################################################
+## Set parameters for bowtie aligner -- default is PARALLEL 1
+##                                   and ALIGNMODE CONSERVATIVE
+PARALLEL 2
+#ALIGNMODE CONSERVATIVE
+
+################################################################
+## Set exclusion parameter -- value in base-pairs
+##                         -- default is 500
+#EXCLUDE 1000
+
+################################################################
+## Save interchromosomal interactions as well as counting
+INTERCHROM TRUE
+
+################################################################
+## Binning parameters -- sets bin step and window size
+##                    -- these are optional
+##                    -- this section can be changed and rerun 
+##                       using capC-MAP postprocess
+BIN 500 1000
+BIN 3000 6000
+
+################################################################
+## Normalize binned profiles to "reads per million"
+NORMALIZE TRUE
+
+################################################################
+## Combine options  -- uncomment to run in combine mode
+#COMBINEMODE TRUE
+#COMBINECOUNT 2
+
+################################################################
+## Dry run mode  -- uncomment to perfomr dry run
+#DRYRUN TRUE
