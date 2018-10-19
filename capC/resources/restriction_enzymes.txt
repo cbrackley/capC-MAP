@@ -1,0 +1,8 @@
+# List of restriction enzymes
+# Lines beginning with '#' are ignored as comments
+# Each line details one restriction enzyme with three tab separated columns
+# column 1: name    column 2: sequence	   column 3: cut point
+# where cut point is the 1-based position of the first base after the cut point
+# and name and sequence are case insensitive
+#
+DpnII	GATC	3
