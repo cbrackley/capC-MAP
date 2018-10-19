@@ -3,7 +3,7 @@ build
 *~
 *.pyc
 
-CBREADE_automake
+CBREADME_automake
 Makefile
 src/Makefile
 autom4te.cache/ 
