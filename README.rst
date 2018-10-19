@@ -1,9 +1,16 @@
 capC-MAP : Analysis software for Capture-C data
 ***********************************************
 
-COMMING SOON!
+.. image:: https://readthedocs.org/projects/capc-map/badge/?version=latest
+:target: https://capc-map.readthedocs.io/en/latest/?badge=latest
+:alt: Documentation Status
 
 capC-MAP is a software tool designed to automate the processing of Capture-C data. It allows a user to run the whole analysis pipe line using a single command line. It comprises a set of C++ programs and a wrapper script written in Python. It has been designed so that the component programs can also be run in isolation for advanced usage.
+
+Documentation
+=============
+
+Full documentation is available at http://capc-map.readthedocs.io/
 
 
 Requirements
@@ -26,13 +33,12 @@ Installation
 
 To install capC-MAP perform the following steps:
 
-1. Download the software and unzip into a directory in your home directory,
-   or clone from github.
+1. Download the source code or clone from github.
 
 2. capC-MAP consists of a set of programs written in C++ and a Python package, 
    which both need to be installed on your system. If you have root privileges 
    on your system you can compile and install the C++ programs by running the 
-   following commands in the capC-MAP root directory
+   following commands in the capC-MAP package directory
    ::
 
      ./configure
