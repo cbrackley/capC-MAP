@@ -3,5 +3,6 @@ build
 *~
 *.pyc
 
+CBREADE_automake
 Makefile
 src/Makefile
