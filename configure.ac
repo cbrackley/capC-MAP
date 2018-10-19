@@ -1,4 +1,4 @@
-AC_INIT([capC-MAP], [0.0.1], [C.Brackley@ed.ac.uk])
+AC_INIT([capC-MAP], [1.0.0], [C.Brackley@ed.ac.uk])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CXX
 AC_CONFIG_FILES([
