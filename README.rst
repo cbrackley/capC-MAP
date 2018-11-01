@@ -7,6 +7,12 @@ capC-MAP : Analysis software for Capture-C data
 
 capC-MAP is a software tool designed to automate the processing of Capture-C data. It allows a user to run the whole analysis pipe line using a single command line. It comprises a set of C++ programs and a wrapper script written in Python. It has been designed so that the component programs can also be run in isolation for advanced usage.
 
+Citation
+========
+
+We have a paper presenting capC-MAP currently under review. In the mean time, please take a look at our pre-print, and cite it if you use capC-MAP in your work. Pre-print : https://doi.org/10.1101/456160
+
+
 Documentation
 =============
 
