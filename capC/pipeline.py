@@ -371,7 +371,7 @@ def run_pipeline(args):
 
         command = ["samtools", "--version-only"]
         version = subprocess.check_output(command)
-        if ( not version.decode(sys.stdout.encoding).startswith("1.") ):
+        if ( not version.decode('utf8').startswith("1.") ):  # if ( not version.decode(sys.stdout.encoding).startswith("1.") ):
             raise RuntimeError("Error : Unsupported version of samtools %s ... Exiting.\n")
 
         for i in rs.capCmap_extern:
