@@ -30,8 +30,8 @@ def do_postprocess(args):
     """" Do some binning / smoothing / normalization """
 
     experimentname = args.outdir[0]
-    fulloutputdirpath = os.path.realpath(args.outdir[0])
-    paramsfilefullpath = os.path.realpath(args.configfile[0])
+    fulloutputdirpath = os.path.realpath(os.path.expanduser(args.outdir[0]))
+    paramsfilefullpath = os.path.realpath(os.path.expanduser(args.configfile[0]))
     
     sys.stdout.write("\n####################################################\n")
     sys.stdout.write("## Running capC-MAP post-processing of raw pile-ups.\n\n")
