@@ -232,12 +232,15 @@ void genome::counters::output_interchrom(const std::string &filename) const {
 
   ouf.open( filename.c_str() );
   ouf<<"# target name, total intrachromosomal interactions, total "
-    "interchromosomal interactions, total interactions"<<std::endl;
+    "interchromosomal interactions, total interactions, "
+    "interactions within 5Mb, interactions within 1Mb"<<std::endl;
   for (it_targs T=me.targets.begin(); T != me.targets.end(); ++T) {
     ouf<<T->name<<"\t"
        <<validPairs.find(T->name)->second<<"\t"
        <<onlyInter.find(T->name)->second<<"\t"
-       <<validPairs.find(T->name)->second+onlyInter.find(T->name)->second
+       <<validPairs.find(T->name)->second+onlyInter.find(T->name)->second<<"\t"
+       <<within5Mb.find(T->name)->second<<"\t"
+       <<within1Mb.find(T->name)->second
        <<std::endl;;
   }
 
@@ -361,6 +364,8 @@ void genome::counters::setup() {
   for (it_targs T=me.targets.begin() ; T != me.targets.end() ; ++T ) {
     validPairs[ T->name ] = 0;
     onlyInter[ T->name ] = 0;
+    within1Mb[ T->name ] = 0;
+    within5Mb[ T->name ] = 0;
   }
   
 }
