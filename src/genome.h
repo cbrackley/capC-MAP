@@ -92,7 +92,9 @@ namespace CAPCMAIN_NS {
 
       // per target counters
       std::map<std::string, long unsigned int> validPairs,
-	onlyInter;
+	onlyInter,
+	within1Mb,
+	within5Mb;
 
       // constructor
       counters(genome &g) : me(g) {};

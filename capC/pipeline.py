@@ -327,8 +327,8 @@ def run_pipeline(args):
     """ run the pipeline """
 
     experimentname = args.outdir[0]
-    fulloutputdirpath = os.path.realpath(args.outdir[0])
-    paramsfilefullpath = os.path.realpath(args.configfile[0])
+    fulloutputdirpath = os.path.realpath(os.path.expanduser(args.outdir[0]))
+    paramsfilefullpath = os.path.realpath(os.path.expanduser(args.configfile[0]))
     
     sys.stdout.write("\n####################################################\n")
     sys.stdout.write("## Running capC-MAP full analysis\n\n")
@@ -371,7 +371,7 @@ def run_pipeline(args):
 
         command = ["samtools", "--version-only"]
         version = subprocess.check_output(command)
-        if ( not version.decode(sys.stdout.encoding).startswith("1.") ):
+        if ( not version.decode('utf8').startswith("1.") ):  # if ( not version.decode(sys.stdout.encoding).startswith("1.") ):
             raise RuntimeError("Error : Unsupported version of samtools %s ... Exiting.\n")
 
         for i in rs.capCmap_extern:
@@ -388,23 +388,26 @@ def run_pipeline(args):
     #####################################################################################
     # Check input files are there
     try:
-        if ( not os.path.isfile(params.fastq1) ):
+        fullpathfastq1 = os.path.abspath(os.path.expanduser(params.fastq1))
+        fullpathfastq2 = os.path.abspath(os.path.expanduser(params.fastq2))
+        fullpathtargfile = os.path.abspath(os.path.expanduser(params.targfile))
+        fullpathrestfragfile = os.path.abspath(os.path.expanduser(params.restfragfile))
+
+        if ( not os.path.isfile(fullpathfastq1) ):
             raise RuntimeError("Cannot find file %s .\n"%params.fastq1)
-        if ( not os.path.isfile(params.fastq2) ):
+        if ( not os.path.isfile(fullpathfastq2) ):
             raise RuntimeError("Cannot find file %s .\n"%params.fastq2)
         if ( params.fastq1 == params.fastq2 ):
             raise RuntimeError("Fastq files must be different.\n")
-        if not os.path.isfile(params.targfile):
+
+        if not os.path.isfile(fullpathtargfile):
             raise RuntimeError("Cannot find file %s .\n"%params.targfile)
-        if not os.path.isfile(params.restfragfile):
+        if not os.path.isfile(fullpathrestfragfile):
             raise RuntimeError("Cannot find file %s .\n"%params.restfragfile)
-        fullpathfastq1 = os.path.abspath(params.fastq1)
-        fullpathfastq2 = os.path.abspath(params.fastq2)
-        fullpathtargfile = os.path.abspath(params.targfile)
-        fullpathrestfragfile = os.path.abspath(params.restfragfile)
-        if not os.path.isfile("%s.1.ebwt"%params.indexpath):
+
+        if not os.path.isfile("%s.1.ebwt"%os.path.abspath(os.path.expanduser(params.indexpath))):
             raise RuntimeError("Cannot find bowtie index %s.\n"%params.indexpath)
-        fullpathindex = os.path.abspath("%s.1.ebwt"%params.indexpath)[:-7]
+        fullpathindex = os.path.abspath("%s.1.ebwt"%os.path.abspath(os.path.expanduser(params.indexpath)))[:-7]
     except RuntimeError as e:
         sys.stdout.write("Error : "+str(e))
         sys.exit(1) # exit with error code

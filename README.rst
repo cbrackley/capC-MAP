@@ -18,6 +18,8 @@ Documentation
 
 Full documentation is available at http://capc-map.readthedocs.io/
 
+Also, a small example data set with instructions on how to run an analysis is included in the ``example\`` directory, and a set of tutorials on how to perform downstream analysis and plotting of capC-MAP output are provided in the ``downstream\`` directory.
+
 
 Requirements
 ============

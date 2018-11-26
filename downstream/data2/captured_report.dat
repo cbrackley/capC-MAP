@@ -1,0 +1,46 @@
+##################################################################################
+###
+### Report for Capture C Analysis captured_report.dat
+###
+##################################################################################
+###
+### total number of read fragments                    :      284021172
+### total number of read sets                         :      100845715
+###
+### Duplicates :
+###
+###   number of duplicate sets removed                :       69370805  (68.79 %)
+###
+### Of the remaining 31474910 read sets :
+###
+###   number of sets where no fragments mapped        :        7953539  (25.27 %)
+###   number of sets with no targets fragments        :       22512458  (71.53 %)
+###   number of sets with multiple targets            :             87  (0.00 %)
+###   number of sets with no reporters                :         649846  (2.06 %)
+###   number of interactions within exclusion region  :          13828  (0.04 %)
+###
+### Valid Interactions :
+###
+###   interchromosomal                                :          87855  (0.28 %)
+###   intrachromosomal                                :         253852  (0.81 %)
+###
+##################################################################################
+###
+### Overall yield : 
+###                      total read sets :     100845715
+###                    valid interaction :        341707
+###                            % overall :          0.34 %
+###           % after duplicates removed :          1.09 %
+### % of valid which are intrachomosomal :         74.29 %
+###
+##################################################################################
+###
+### Per target information 
+###
+###   target name           intra       inter       total
+###   DS_enhancer          136111       40874      176985
+###   Elp4                  63602       29082       92684
+###   Pax6                  15633        9120       24753
+###   US_enhancer           38506        8779       47285
+###
+##################################################################################

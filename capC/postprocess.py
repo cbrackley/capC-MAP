@@ -30,8 +30,8 @@ def do_postprocess(args):
     """" Do some binning / smoothing / normalization """
 
     experimentname = args.outdir[0]
-    fulloutputdirpath = os.path.realpath(args.outdir[0])
-    paramsfilefullpath = os.path.realpath(args.configfile[0])
+    fulloutputdirpath = os.path.realpath(os.path.expanduser(args.outdir[0]))
+    paramsfilefullpath = os.path.realpath(os.path.expanduser(args.configfile[0]))
     
     sys.stdout.write("\n####################################################\n")
     sys.stdout.write("## Running capC-MAP post-processing of raw pile-ups.\n\n")
@@ -79,12 +79,14 @@ def do_postprocess(args):
     #####################################################################################
     # Check input files are there
     try:
-        if not os.path.isfile(params.targfile):
+        fullpathtargfile = os.path.abspath(os.path.expanduser(params.targfile))
+        fullpathrestfragfile = os.path.abspath(os.path.expanduser(params.restfragfile))
+
+        if not os.path.isfile(fullpathtargfile):
             raise RuntimeError("Cannot find file %s .\n"%params.targfile)
-        fullpathtargfile = os.path.abspath(params.targfile)
-        if not os.path.isfile(params.restfragfile):
+
+        if not os.path.isfile(fullpathrestfragfile):
             raise RuntimeError("Cannot find file %s .\n"%params.restfragfile)
-        fullpathrestfragfile = os.path.abspath(params.restfragfile)
     except RuntimeError as e:
         sys.stdout.write("Error : "+str(e))
         sys.exit(1) # exit with error code

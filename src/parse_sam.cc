@@ -334,6 +334,16 @@ void CAPCMAIN_NS::parse_sam_file(genome& gnm, const std::string& samfile,
     gnm.count.total_validPairs++;
     gnm.count.validPairs[current_target.name]++;
 
+    // is it within 5Mb of the target? (lets use the start coords of the first)
+    if (abs(current_frags.begin()->start-current_target.start)<=5e6) {
+      gnm.count.within5Mb[current_target.name]++;
+      // is it within 1Mb of the target?
+      if (abs(current_frags.begin()->start-current_target.start)<=1e6) {
+	gnm.count.within1Mb[current_target.name]++;
+      }
+    }
+
+
     // Choice here to give only the middle of any adjacent set of frags
     {
       genome::it_rest_set F = current_frags.begin();
