@@ -465,6 +465,7 @@ def run_pipeline(args):
             stdoutfile = open("cutadapt.stdout.log",'w')
             stderrfile = open("cutadapt.stderr.log",'w')
             command = ["cutadapt","-a",rs.adapter_FOR,"-A",rs.adapter_REV,
+                       "-m",4,
                        "-o",trimmedfile1,"-p",trimmedfile2,
                        fullpathfastq1,fullpathfastq2]
             mainlogfile.write(subprocess.list2cmdline(command)+"\n")
