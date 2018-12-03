@@ -154,7 +154,7 @@ The available options are as follows
   aligner, and is passed verbatim to bowtie.
 
 ``EXCLUDE <N>``
-  *Optional.* Default: 500. Sets the distance in base-pairs, where if a 
+  *Optional.* Default: 1000. Sets the distance in base-pairs, where if a 
   reporter fragment is closer to a target than this it is discarded.
 
 ``INTERCHROM``

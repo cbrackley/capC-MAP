@@ -46,7 +46,7 @@ class Parameters:
         self.biningcount = 0
         self.binlist = []
         self.bowtie_args = rs.bowtie_args_C_nocombine
-        self.exclusion = 500
+        self.exclusion = 1000
         self.trim_adapters = True
         self.save_inter = False
         self.normalize = False
