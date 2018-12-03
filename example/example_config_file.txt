@@ -32,8 +32,8 @@ PARALLEL 2
 
 ################################################################
 ## Set exclusion parameter -- value in base-pairs
-##                         -- default is 500
-#EXCLUDE 1000
+##                         -- default is 1000
+#EXCLUDE 500
 
 ################################################################
 ## Save interchromosomal interactions as well as counting

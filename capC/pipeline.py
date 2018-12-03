@@ -46,7 +46,7 @@ class Parameters:
         self.biningcount = 0
         self.binlist = []
         self.bowtie_args = rs.bowtie_args_C_nocombine
-        self.exclusion = 500
+        self.exclusion = 1000
         self.trim_adapters = True
         self.save_inter = False
         self.normalize = False
@@ -465,6 +465,7 @@ def run_pipeline(args):
             stdoutfile = open("cutadapt.stdout.log",'w')
             stderrfile = open("cutadapt.stderr.log",'w')
             command = ["cutadapt","-a",rs.adapter_FOR,"-A",rs.adapter_REV,
+                       "-m","4",
                        "-o",trimmedfile1,"-p",trimmedfile2,
                        fullpathfastq1,fullpathfastq2]
             mainlogfile.write(subprocess.list2cmdline(command)+"\n")
