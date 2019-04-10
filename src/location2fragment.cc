@@ -28,6 +28,7 @@
 #include "location2fragment.h"
 #include "genome.h"
 #include "bedfiles.h"
+#include "messages.h"
 
 #include <stdexcept>
 #include <iostream>
@@ -212,6 +213,11 @@ void LOC2FRAG_NS::parse_loc2frag_command_line(const int &argc,
       params.locflag++;
       argi += 2;
 
+    } else if ( std::string(argv[argi]) == "--version" ) {
+      // version -- overrides all other option
+      COMMON_NS::print_version();
+      std::exit(EXIT_SUCCESS);
+      
     } else {
       throw std::runtime_error("Unknown option "+std::string(argv[argi])+"\n"+usage_message);
     }

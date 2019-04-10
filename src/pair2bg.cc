@@ -29,6 +29,7 @@
 #include "pair2bg.h"
 #include "postprocess.h"
 #include "bedfiles.h"
+#include "messages.h"
 
 #include<string>
 #include<iostream>
@@ -147,6 +148,11 @@ void POSTPROCESS_NS::parse_pair2bg_command_line(const int &argc, char **argv,
       flagichrom++;
       argi += 1;
 
+    } else if ( std::string(argv[argi]) == "--version" ) {
+      // version -- overrides all other option
+      COMMON_NS::print_version();
+      std::exit(EXIT_SUCCESS);
+      
     } else {
       throw std::runtime_error("Unknown option "+std::string(argv[argi])+"\n"+usage_message);
     }

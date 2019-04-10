@@ -30,6 +30,8 @@ namespace COMMON_NS {
   void message(const std::string &);
 
   void warning_message(const std::string &);
+
+  void print_version();
   
 }
 

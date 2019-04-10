@@ -19,26 +19,9 @@
  */
 
 
-#include "messages.h"
-#include "version.h"
+#ifndef VERSION_H
+#define VERSION_H
 
-#include <string>
-#include <iostream>
+#define CAPCMAP_VERSION "@VERSION@"
 
-using namespace COMMON_NS;
-
-void COMMON_NS::message(const std::string &line) {
-  // send a message to stdout
-  std::cout<<line<<std::endl;
-}
-
-void COMMON_NS::warning_message(const std::string &line) {
-  // send a warning message to stderr
-  std::cerr<<" WARNING ::  "<<line<<std::endl;
-}
-
-void COMMON_NS::print_version() {
-  // send a warning message to stderr
-  std::cerr<<" capC-MAP Version ::  "<<CAPCMAP_VERSION<<std::endl;
-}
-
+#endif

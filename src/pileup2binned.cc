@@ -29,6 +29,7 @@
 #include "pileup2binned.h"
 #include "postprocess.h"
 #include "binprofile.h"
+#include "messages.h"
 
 #include <stdexcept>
 #include <iostream>
@@ -184,6 +185,11 @@ void POSTPROCESS_NS::parse_pileup2binned_command_line(const int &argc,
       total_reads = std::string(argv[argi+1]);
       normflag++;
       argi += 2;
+
+    } else if ( std::string(argv[argi]) == "--version" ) {
+      // version -- overrides all other option
+      COMMON_NS::print_version();
+      std::exit(EXIT_SUCCESS);
       
     } else {
       throw std::runtime_error("Unknown option "+std::string(argv[argi])+"\n"+usage_message);

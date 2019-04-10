@@ -19,11 +19,13 @@ __top_builddir____BUILD_DIR__capCdigestfastq_SOURCES = fqdigest.cc	\
 				fastq.cc		\
 				messages.cc
 __top_builddir____BUILD_DIR__capCpair2bg_SOURCES = pair2bg.cc	\
-				bedfiles.cc
+				bedfiles.cc			\
+				messages.cc
 __top_builddir____BUILD_DIR__capCpileup2binned_SOURCES = pileup2binned.cc\
 					binprofile.cc	\
 					bedgraphfiles.cc\
-					bedfiles.cc
+					bedfiles.cc	\
+					messages.cc
 __top_builddir____BUILD_DIR__capClocation2fragment_SOURCES = location2fragment.cc\
 					bedfiles.cc	\
 					genome.cc	\

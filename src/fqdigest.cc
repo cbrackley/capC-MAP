@@ -191,6 +191,11 @@ void DIGEST_NS::parse_command_line(const int &argc,  char **argv, filenames &fna
       longflag++;
       argi += 1;
 
+    } else if ( std::string(argv[argi]) == "--version" ) {
+      // version -- overrides all other option
+      COMMON_NS::print_version();
+      std::exit(EXIT_SUCCESS);
+      
     } else {
       throw std::runtime_error("Unknown option "+std::string(argv[argi])+"\n"+usage_message);
     }
