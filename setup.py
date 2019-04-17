@@ -22,7 +22,7 @@ setuptools.setup(name='capC-MAP',
                      '': ['*.txt'],
                  },
                  classifiers=[
-                     "Programming Language :: Python :: 2.7",
+                     "Programming Language :: Python",
                      "Operating System :: OS Independent",
                  ],
              )
