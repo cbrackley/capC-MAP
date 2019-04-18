@@ -17,12 +17,14 @@ setuptools.setup(name='capC-MAP',
                  include_package_data=True,
                  install_requires=[
                      'biopython>=1.70',
+                     'numpy',
                  ],
                  package_data = {
                      '': ['*.txt'],
                  },
                  classifiers=[
-                     "Programming Language :: Python",
+                     "Programming Language :: Python :: 2",
+                     "Programming Language :: Python :: 3",
                      "Operating System :: OS Independent",
                  ],
              )
