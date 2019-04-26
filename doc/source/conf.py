@@ -61,7 +61,7 @@ author = u'Chris Brackley'
 # The short X.Y version.
 
 # CB - get version from file
-with open("../../VERSION" "r") as fh:
+with open("../../VERSION", "r") as fh:
     ver = fh.read().strip()
 
 version = ver
