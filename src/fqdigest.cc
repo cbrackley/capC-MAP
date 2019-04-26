@@ -218,7 +218,7 @@ void DIGEST_NS::parse_command_line(const int &argc,  char **argv, filenames &fna
 	throw std::runtime_error("Error parsing command line : enzyme cut point must be a positive integer");
   }
   std::istringstream(position) >> params.cutpoint;
-  if ( params.cutpoint<1 || params.cutpoint>params.enzyme.size() ) {
+  if ( params.cutpoint<1 || params.cutpoint>params.enzyme.size()+1 ) {
     throw std::runtime_error("Error parsing command line : enzyme cut point must be a positive integer between 1 and the sequence length");
   }
 
@@ -302,7 +302,10 @@ void DIGEST_NS::do_digestion(const filenames &fname, const parameters &params, c
       
       for (int cc=1;cc<cutpoints.size();cc++) {
 	// add to the list of digested fragments
-	digested.push_back( fastq[i].extract(cutpoints[cc-1],cutpoints[cc]-1) );
+	if (cutpoints[cc-1]<cutpoints[cc]) {
+	  // don't include zero length fragments from the end
+	  digested.push_back( fastq[i].extract(cutpoints[cc-1],cutpoints[cc]-1) );
+	}
       }
       
     } // end the loop round i

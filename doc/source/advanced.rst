@@ -16,7 +16,10 @@ modes. In the standard mode, as used in the capC-MAP pipeline, the
 program reads from the two paired end read fastq files line-by-line,
 checking that the names match for each of the pair. The program splits
 the read pair into smaller restriction enzyme fragments at the specified
-cutting sequence. All fragments are output to a single fastq file, with
+cutting sequence. As well as the cut sequence, a cut position within that 
+sequence has to be specified; this does not have to match the real cut 
+position of the enzyme and will not affect downstream capC-MAP results. All 
+fragments are output to a single fastq file, with
 read pair names given in a format suitable for use the the capC-MAP
 program ``capCmain``, once the fastq has been mapped to the reference
 genome.
