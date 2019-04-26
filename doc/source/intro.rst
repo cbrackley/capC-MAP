@@ -6,7 +6,7 @@
 
 capC-MAP is a software package for the analysis of sequencing data from
 Capture-C experiments [Hughes2014]_ [Davies2016]_. It is actually a
-suit of programs written in C++ and Python 2.7, along with a Python
+suit of programs written in C++ and Python, along with a Python
 wrapper script which allows a full analysis pipeline to be run using a
 single command on Unix-based systems. capC-MAP was written so as to be
 as easy to use as possible, but allow maximum customisation and separate

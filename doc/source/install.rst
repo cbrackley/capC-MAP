@@ -6,7 +6,7 @@ Installation
 Requirements
 ************
 
-capC-MAP requires a C++ compiler and Python (2.7); also the following software should be installed and visible on the system path:
+capC-MAP requires a C++ compiler and Python; also the following software should be installed and visible on the system path:
 
 -  cutadapt (>=1.11)
 

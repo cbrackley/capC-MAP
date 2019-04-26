@@ -26,7 +26,7 @@ Requirements
 
 The following software must be installed on your system and visible on the path
 
-* Python (>=2.7; Python 3 is not currently supported)
+* Python (>=2.7)
 * biopython package for python
 * bowtie (>=1.1.1 note that bowtie2 is a distinct piece of software and is not supported)
 * samtools (>=1.3.1)
