@@ -5,8 +5,11 @@ import setuptools
 with open("README.rst", "r") as fh:
     long_description = fh.read()
 
+with open("VERSION", "r") as fh:
+    ver = fh.read().strip()
+
 setuptools.setup(name='capC-MAP',
-                 version='1.1.1',
+                 version=ver,
                  description='Analysis of Capture-C data',
                  long_description=long_description,
                  long_description_content_type="text/x-rst",
