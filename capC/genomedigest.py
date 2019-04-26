@@ -45,7 +45,12 @@ def do_genomedigest(args):
     enzyme_name = args.enzymename[0]
 
     # load enzyme list from resource file
-    
+    if not enzyme_name.upper() in rs.enzyme_list:
+        sys.stdout.write("Unknown restriction enzyme %s ... \n"%enzyme_name)
+        sys.stdout.write("New enzymes can be added to the file\n")
+        sys.stdout.write("     %s\n"%rs.enzymesfile)
+        sys.stdout.write("... Exiting.\n")
+        sys.exit()  
     site,split = rs.enzyme_list[enzyme_name.upper()]
     split = split - 1 # convert to 0 based
 

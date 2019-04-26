@@ -36,11 +36,11 @@ be generated with the following command:
 ::
 
    capC-MAP genomedigest -f <reference genome fasta file> \
-                         -r <name of restriction enzyme|cut sequence> \
+                         -r <name of restriction enzyme> \
                          -o <output bed file>
 
-where all three options are required. The ``-r`` option specifies either the
-name of a restriction enzyme which is known to capC-MAP (i.e. DpnII), or the sequence recognised by the enzyme. Typically DpnII is used in Capture-C experiments, but the ``-r`` option allows other cut sequences to be used (see section :ref:`sectionenzyme` below). 
+where all three options are required. The ``-r`` option specifies the
+name of a restriction enzyme which is known to capC-MAP (e.g. DpnII which is typically used in Capture-C experiments). New restriction enzymes can be added to capC-MAP by editing the "restriction_enzymes.txt" file which is part of the install (run the genomedigest command with the name of a restriction enzyme - if it is not known, capC-MAP will give the location of "restriction_enzymes.txt"). To add a new enzyme the recognition sequence and also the "cut point" must be specified; the "cut point" does not have to coincide with the true enzyme cutting position, it is just used internally by capC-MAP and will not affect results. )See also section :ref:`sectionenzyme` below.)
 
 .. _sectionrun:
 
