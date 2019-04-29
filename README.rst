@@ -39,52 +39,45 @@ Version numbers are those which have been tested, and older versions may also wo
 Installation
 ============
 
-To install capC-MAP perform the following steps:
+There are several ways to install capC-MAP. One of the easiest is if the bioconda/conda packaging system is available on your system (see https://bioconda.github.io/#install-bioconda for details on how to get it). In this case capC-MAP and all of its requirements can be installed with the single command.
+::
+
+  conda install capc-map
+
+
+If you do not have conda on your system, you will need to install the requirements listed above separately. Then install capC-MAP with the following steps:
 
 1. Download the source code or clone from github.
 
 2. capC-MAP consists of a set of programs written in C++ and a Python package, 
    which both need to be installed on your system. If you have root privileges 
-   on your system you can compile and install the C++ programs by running the 
-   following commands in the capC-MAP package directory
+   and pip is available on your system you can compile and install the software 
+   by running the following commands in the capC-MAP package directory
    ::
 
      ./configure
      make
      make install
-     
-   and you can install the Python package using pip with the command
+     pip install .
+
+   If you do not have pip installed, instead run
    ::
 
-      pip install .
+     ./configure
+     make
+     make install
+     python setup.py install 
 
-   when in the capC-MAP package directory.
-
-   Alternatively, if you do not have root privileges, you can install a local 
+   If you do not have root privileges, you can install a local 
    copy of capC-MAP in your home directory using, for example, the commands
    ::
 
       ./configure --prefix=${HOME}/.local/
       make
       make install
-
-   and
-   ::
-
       pip install --user .
 
-   If you do not have pip available on your system you can instead install the 
-   python package using the command
-   ::
-
-      python setup.py install 
-
-   or without root privileges
-   ::
-
-      python setup.py install --user
-
-3. If you have installed capC-MAP in your home directory, you will need to 
+   If you have installed capC-MAP in your home directory, you will need to 
    ensure the binaries directory is present on the system PATH. For example, 
    by adding the following line to your ``~/.bashrc`` file
    ::

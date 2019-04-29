@@ -24,7 +24,13 @@ Version numbers are those which have been tested, and other versions may also wo
 Installation
 ************
 
-To install capC-MAP perform the following steps:
+There are several ways to install capC-MAP. One of the easiest is if the bioconda/conda packaging system is available on your system (see https://bioconda.github.io/#install-bioconda  for details on how to get it). In this case capC-MAP and all of its requirements can be installed with the single command.
+::
+
+  conda install capc-map
+
+
+If you do not have conda on your system, you will need to install the requirements listed above separately. Then install capC-MAP perform the following steps:
 
 1. Download the software and unzip into a directory in your home directory.
    Or clone from git using the command:
