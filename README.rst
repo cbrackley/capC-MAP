@@ -5,6 +5,16 @@ capC-MAP : Analysis software for Capture-C data
 	   :target: https://capc-map.readthedocs.io/en/latest/?badge=latest
 	   :alt: Documentation Status
 
+.. image:: https://anaconda.org/bioconda/capc-map/badges/installer/conda.svg   
+           :target: https://conda.anaconda.org/bioconda
+
+.. image:: https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)
+           :target: http://bioconda.github.io/recipes/capc-map/README.html)
+
+.. image:: https://anaconda.org/bioconda/capc-map/badges/downloads.svg   
+           :target: https://anaconda.org/bioconda/capc-map
+
+
 capC-MAP is a software tool designed to automate the processing of Capture-C data. It allows a user to run the whole analysis pipe line using a single command line. It comprises a set of C++ programs and a wrapper script written in Python. It has been designed so that the component programs can also be run in isolation for advanced usage.
 
 Citation
