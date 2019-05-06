@@ -9,7 +9,7 @@ capC-MAP : Analysis software for Capture-C data
            :target: https://conda.anaconda.org/bioconda
 
 .. image:: https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)
-           :target: http://bioconda.github.io/recipes/capc-map/README.html)
+           :target: http://bioconda.github.io/recipes/capc-map/README.html
 
 .. image:: https://anaconda.org/bioconda/capc-map/badges/downloads.svg   
            :target: https://anaconda.org/bioconda/capc-map
