@@ -151,7 +151,9 @@ The available options are as follows
   below for details. The two pre-set options CONSERVATIVE and RELAXED
   require no further options. If CUSTOM is specified, everything
   following it on the same line is taken to be an option for the
-  aligner, and is passed verbatim to bowtie.
+  aligner, and is passed verbatim to bowtie (bowtie's '-p' option, the 
+  index and input/output file names should not be included as capC-MAP 
+  will add these).
 
 ``EXCLUDE <N>``
   *Optional.* Default: 1000. Sets the distance in base-pairs, where if a 

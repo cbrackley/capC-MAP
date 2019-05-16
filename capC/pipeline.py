@@ -217,6 +217,8 @@ def ParseConfigFile(configfile):
                 params.bowtie_args = rs.bowtie_args_C_nocombine
         if params.alignmode=="RELAXED":
                 params.bowtie_args = rs.bowtie_args_R
+    else:
+        params.bowtie_args = params.aligncustom+" --sam" # bowtie doesn't mind this appearing twice
 
     return params
 
