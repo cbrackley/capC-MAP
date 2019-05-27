@@ -44,6 +44,9 @@ where the options are as follows:
 
 Note that the ``\`` character means that a single command is broken across lines.
 
+Pre-built bowtie indexes for many genomes are available for download on the bowtie website (http://bowtie-bio.sourceforge.net), though a fasta file is required to build the list of restriction enzyme fragments. It is essential to ensure that the index and fragments list are built from the same reference genome (for this reason we recommend building you own index).
+
+
 Perform quality control on fastq data files.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

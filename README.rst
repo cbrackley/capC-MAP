@@ -55,7 +55,7 @@ There are several ways to install capC-MAP. One of the easiest is if the biocond
   conda install capc-map
 
 
-If you do not have conda on your system, you will need to install the requirements listed above separately. Then install capC-MAP with the following steps:
+Some further details on conda installation are given below. If you do not have conda on your system, you will need to install the requirements listed above separately. Then install capC-MAP with the following steps:
 
 1. Download the source code or clone from github.
 
@@ -93,5 +93,29 @@ If you do not have conda on your system, you will need to install the requiremen
    ::
 
      export PATH=$PATH:~/.local/bin
+
+
+Conda Installation - Troubleshooting
+=====================================
+
+Version incomparability issues for python have been found to cause problems 
+with conda installation on some systems. To avoid this conda allows packages 
+to be installed in isolated environments (see e.g. 
+https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-environments). 
+For example one can install capC-MAP in its own environment with the command
+
+   ::
+
+      conda create -n envcapc capc-map
+
+After installation the environment must be activated before capC-MAP is used, and can be deactivated afterwards, e.g.
+
+   ::
+
+     conda activate envcapc
+
+     # --  run capC-MAP commands -- #
+
+     conda deactivate
 
 

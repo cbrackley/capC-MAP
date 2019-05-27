@@ -104,19 +104,24 @@ The available options are as follows
   subsequent arguments are ignored.
 
 ``INDEX <index>``
-  Required. Specifies the bowtie index for the reference genome;
+  *Required*. Specifies the bowtie index for the reference genome;
   this will be passed to bowtie for the alignment step of the
   pipeline. The relative path must be given, with the name as
   specified when the reference was built using ``bowtie-build``.
   Takes exactly one argument; subsequent arguments are ignored.
+  Pre-built bowtie indexes are available to download on the bowtie
+  website, though it is essential to ensure that the index is built
+  from the same reference genome as the restriction enzyme fragments 
+  (for this reason we recommend building the index from the reference).
 
 ``RESTFRAGS <file>``
   *Required*. Specifies a bed file for the list of restriction enzyme
   fragments covering the reference genome, as generated using
   capC-MAP with the ``genomedigest`` mode. Note that this must
   have been generated for the same restriction enzyme as is specified
-  by the ``ENZYME`` option. Takes exactly one argument; subsequent
-  arguments are ignored.
+  by the ``ENZYME`` option, and must be generated from the same reference 
+  genome as the bowtie index specified by the ``INDEX`` option. Takes 
+  exactly one argument; subsequent arguments are ignored.
 
 ``ENZYME <enzyme name|cut sequence>``
   *Required*. Specifies the restriction enzyme used in the experiment, either by name or by 
