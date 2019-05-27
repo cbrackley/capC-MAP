@@ -98,7 +98,7 @@ Some further details on conda installation are given below. If you do not have c
 Conda Installation - Troubleshooting
 =====================================
 
-Version incomparability issues for python have been found to cause problems 
+Version incompatibility issues for python have been found to cause problems 
 with conda installation on some systems. To avoid this conda allows packages 
 to be installed in isolated environments (see e.g. 
 https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-environments). 
