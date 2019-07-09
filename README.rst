@@ -20,7 +20,7 @@ capC-MAP is a software tool designed to automate the processing of Capture-C dat
 Citation
 ========
 
-We have a paper presenting capC-MAP currently under review. In the mean time, please take a look at our pre-print, and cite it if you use capC-MAP in your work. Pre-print : https://doi.org/10.1101/456160
+A paper presenting capC-MAP has recently been accepted in the journal *Bioinformatics*, and is available at https://doi.org/10.1093/bioinformatics/btz480. Please cite it if you use capC-MAP in your work. A pre-print is also available: https://doi.org/10.1101/456160
 
 
 Documentation
