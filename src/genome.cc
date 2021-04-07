@@ -292,6 +292,8 @@ void genome::counters::output_report(const std::string &filename) const {
      <<std::setw(3)<<"("<<no_reporters*remainingPC<<" %)"<<std::endl;
   ouf<<"###   number of interactions within exclusion region  :  "<<std::setw(13)<<std::right<<exclusion
      <<std::setw(3)<<"("<<exclusion*remainingPC<<" %)"<<std::endl;
+  ouf<<"###   number of interactions with multiple non-adjacent reporters  :  "<<std::setw(13)<<std::right<<multiple_reporters
+     <<std::setw(3)<<"("<<multiple_reporters*remainingPC<<" %)"<<std::endl;
   ouf<<"###"<<std::endl; 
   ouf<<"### Valid Interactions :"<<std::endl;
   ouf<<"###"<<std::endl;
